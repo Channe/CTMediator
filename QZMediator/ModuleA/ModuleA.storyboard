@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--ModuleA Detail View Controller-->
+        <scene sceneID="eE9-mt-Lb8">
+            <objects>
+                <viewController id="vod-j6-kpc" customClass="ModuleADetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GiY-8I-Tjk"/>
+                        <viewControllerLayoutGuide type="bottom" id="nVu-7k-HfY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aSC-1d-3Ax">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k8U-vc-m6k">
+                                <rect key="frame" x="20" y="165" width="280" height="239"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="k8U-vc-m6k" secondAttribute="height" multiplier="280:239" id="X1D-dj-VBm"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Id6-Dg-BSO">
+                                <rect key="frame" x="145" y="468" width="30" height="30"/>
+                                <state key="normal" title="返回"/>
+                                <connections>
+                                    <action selector="returnButtonPressed:" destination="vod-j6-kpc" eventType="touchUpInside" id="KEN-ne-LvS"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3R-Un-TEA">
+                                <rect key="frame" x="139" y="100" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="k8U-vc-m6k" firstAttribute="centerX" secondItem="aSC-1d-3Ax" secondAttribute="centerX" id="5Sv-wG-LwB"/>
+                            <constraint firstItem="V3R-Un-TEA" firstAttribute="top" secondItem="GiY-8I-Tjk" secondAttribute="bottom" constant="80" id="8op-4K-S0X"/>
+                            <constraint firstItem="V3R-Un-TEA" firstAttribute="centerX" secondItem="aSC-1d-3Ax" secondAttribute="centerX" id="HvT-lG-N1y"/>
+                            <constraint firstItem="k8U-vc-m6k" firstAttribute="leading" secondItem="aSC-1d-3Ax" secondAttribute="leading" constant="20" id="ISv-5r-3jI"/>
+                            <constraint firstItem="Id6-Dg-BSO" firstAttribute="centerX" secondItem="aSC-1d-3Ax" secondAttribute="centerX" id="JB7-OO-gZo"/>
+                            <constraint firstItem="nVu-7k-HfY" firstAttribute="top" secondItem="Id6-Dg-BSO" secondAttribute="bottom" constant="70" id="TRy-op-pK5"/>
+                            <constraint firstItem="k8U-vc-m6k" firstAttribute="centerY" secondItem="aSC-1d-3Ax" secondAttribute="centerY" id="eed-ul-pZk"/>
+                            <constraint firstAttribute="trailing" secondItem="k8U-vc-m6k" secondAttribute="trailing" constant="20" id="h00-Qp-04w"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="imageView" destination="k8U-vc-m6k" id="xx2-lb-us8"/>
+                        <outlet property="label" destination="V3R-Un-TEA" id="afM-HZ-5jx"/>
+                        <outlet property="returnButton" destination="Id6-Dg-BSO" id="szb-eK-UjM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jl3-ME-Zbl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1075" y="25"/>
+        </scene>
+    </scenes>
+</document>
