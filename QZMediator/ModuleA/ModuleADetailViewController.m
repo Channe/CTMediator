@@ -17,6 +17,15 @@
 
 @implementation ModuleADetailViewController
 
+- (instancetype)init {
+    if (self = [super init]) {
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ModuleA" bundle:[NSBundle mainBundle]];
+        ModuleADetailViewController *viewController = [sb instantiateViewControllerWithIdentifier:@"ModuleADetailViewControllerId"];
+        self = viewController;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

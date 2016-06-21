@@ -7,8 +7,14 @@
 //
 
 #import "TableViewController.h"
+//导入模块相应的 Mediator Actions
+//调用者依赖于中介者，但与被调用者隔离；被调用者不依赖于中介者，避免相互依赖
+//各组件互不依赖，组件间调用只依赖中间件Mediator，Mediator不依赖其他组件。
+#import "QZMediator+ModuleA_Actions.h"
 
 @interface TableViewController ()
+
+@property (nonatomic,strong) NSArray *dataArray;
 
 @end
 
@@ -17,73 +23,64 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.dataArray = @[@"present detail view controller",
+                       @"push detail view controller",
+                       @"present image",
+                       @"present image when error",
+                       @"show alert"];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return self.dataArray.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"kCellIdentifier"];
+    cell.textLabel.text = self.dataArray[indexPath.row];
     
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.row == 0) {
+        // 获得view controller之后，到底push还是present，由使用者决定的，mediator只要给出view controller的实例就好了
+        UIViewController *viewController = [[QZMediator sharedInstance] QZMediator_viewControllerForDetail];
+        // present
+        [self presentViewController:viewController animated:YES completion:nil];
+    }
+    
+    if (indexPath.row == 1) {
+        UIViewController *viewController = [[QZMediator sharedInstance] QZMediator_viewControllerForDetail];
+        // push
+        [self.navigationController pushViewController:viewController animated:YES];
+    }
+    
+    if (indexPath.row == 2) {
+        // 场景：很明显是需要被present的，不必返回实例，mediator直接present了
+        [[QZMediator sharedInstance] QZMediator_presentImage:[UIImage imageNamed:@"image"]];
+    }
+    
+    if (indexPath.row == 3) {
+        // 场景：参数有问题，因此需要在流程中做好处理
+        [[QZMediator sharedInstance] QZMediator_presentImage:nil];
+    }
+    
+    if (indexPath.row == 4) {
+        // 场景：参数为 block 
+        [[QZMediator sharedInstance] QZMediator_showAlertWithMessage:@"弹窗消息" cancelAction:nil confirmAction:^(NSDictionary *info) {
+            // 做你想做的事
+            NSLog(@"%@", info);
+        }];
+    }
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 /*
 #pragma mark - Navigation
@@ -94,5 +91,10 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 @end

@@ -6,6 +6,11 @@
 //  Copyright © 2016年 ichanne. All rights reserved.
 //
 
+
+/*
+ 组件通过中间件 Mediator 通信，中间件通过 runtime 接口解耦，
+ 通过 target-action 简化写法，通过 category 感官上分离组件接口代码。
+ */
 #import <Foundation/Foundation.h>
 
 ///block 安全调用

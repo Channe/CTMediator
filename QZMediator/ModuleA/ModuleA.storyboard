@@ -9,7 +9,7 @@
         <!--ModuleA Detail View Controller-->
         <scene sceneID="eE9-mt-Lb8">
             <objects>
-                <viewController id="vod-j6-kpc" customClass="ModuleADetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ModuleADetailViewControllerId" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vod-j6-kpc" customClass="ModuleADetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GiY-8I-Tjk"/>
                         <viewControllerLayoutGuide type="bottom" id="nVu-7k-HfY"/>

@@ -18,6 +18,7 @@
 		BC48E8CE1D17DF3A00641013 /* ModuleA.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC48E8CD1D17DF3A00641013 /* ModuleA.storyboard */; };
 		BC48E8D11D17E22C00641013 /* Target_moduleA.m in Sources */ = {isa = PBXBuildFile; fileRef = BC48E8D01D17E22C00641013 /* Target_moduleA.m */; };
 		BC48E8D91D17F57300641013 /* QZMediator+ModuleA_Actions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC48E8D81D17F57300641013 /* QZMediator+ModuleA_Actions.m */; };
+		BC7683521D18EEEF009238E0 /* Readme.md in Sources */ = {isa = PBXBuildFile; fileRef = BC7683511D18EEEF009238E0 /* Readme.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		BC48E8D01D17E22C00641013 /* Target_moduleA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Target_moduleA.m; sourceTree = "<group>"; };
 		BC48E8D71D17F57300641013 /* QZMediator+ModuleA_Actions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QZMediator+ModuleA_Actions.h"; sourceTree = "<group>"; };
 		BC48E8D81D17F57300641013 /* QZMediator+ModuleA_Actions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "QZMediator+ModuleA_Actions.m"; sourceTree = "<group>"; };
+		BC7683511D18EEEF009238E0 /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 		BC48E8A81D17DBCD00641013 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BC7683511D18EEEF009238E0 /* Readme.md */,
 				BC48E8A91D17DBCD00641013 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -211,6 +214,7 @@
 				BC48E8CC1D17DD0D00641013 /* ModuleADetailViewController.m in Sources */,
 				BC48E8AA1D17DBCD00641013 /* main.m in Sources */,
 				BC48E8D11D17E22C00641013 /* Target_moduleA.m in Sources */,
+				BC7683521D18EEEF009238E0 /* Readme.md in Sources */,
 				BC48E8C81D17DC8D00641013 /* QZMediator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,6 +364,7 @@
 				BC48E8BE1D17DBCD00641013 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -12,6 +12,8 @@
 /*
  Action从属于Module，所以Action直接可以使用Module里的所有声明，
  Module 一般包含不止一个 UIViewController，所以其不能是分类
+ Mediator 每一个方法里都要写 runtime 方法，格式是确定的，这是可以抽取出来的
+ target就是class，action就是selector，通过一些规则简化动态调用
  */
 @interface Target_moduleA : NSObject
 
@@ -26,6 +28,6 @@
 - (id)Action_showAlert:(NSDictionary *)params;
 
 // 容错
-- (id)Action_nativeNoImage:(NSDictionary *)params;
+- (id)Action_nativeDefaultImage:(NSDictionary *)params;
 
 @end
